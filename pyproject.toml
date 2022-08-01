@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools==57.5.0", "wheel"]   # PEP 508 specifications.
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nemopt"
+authors = [
+  { name="Ben Elliston", email="bje@air.net.au" },
+]
+description = "National Electricity Market Optimiser"
+readme = "README.md"
+license = {text = "GPLv3"}
+requires-python = ">=3.7"
+
+keywords = ["electricity", "model", "scenarios"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "wxPython @ git+https://git@github.com/kdschlosser/Phoenix@msvc_compiler#egg=wxPython",
+    "deap",
+    "Gooey>=1.0.4",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "pint",
+]
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://nemo.ozlabs.org"
+
+[project.scripts]
+evolve="evolve"
+replay="replay"
+summary="summary"
+
+
+[tool.setuptools.packages.find]
+where = ["awklite", "nemo"]
+
+[tool.setuptools.package-data]
+etc = ["nemo.cfg"]

@@ -1,16 +1,8 @@
 """Setup script."""
-import sys
-
-if sys.platform.startswith('win'):
-    import pyMSVC
-
-    environment = pyMSVC.setup_environment()
-    print(environment)
-
 
 import time
-
 from setuptools import setup
+
 
 setup(name='nemopt',
       # Use a datestamp as the version.
@@ -34,6 +26,7 @@ setup(name='nemopt',
       data_files=[('etc', ['nemo.cfg'])],
       scripts=['evolve', 'replay', 'summary'],
       install_requires=[
+          "wxPython @ git+https://git@github.com/kdschlosser/Phoenix@msvc_compiler#egg=wxPython",
           'deap',
           'Gooey>=1.0.4',
           'matplotlib',
