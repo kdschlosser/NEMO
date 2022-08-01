@@ -1,4 +1,12 @@
 """Setup script."""
+import sys
+
+if sys.platform.startswith('win'):
+    import pyMSVC
+
+    environment = pyMSVC.setup_environment()
+    print(environment)
+
 
 import time
 
